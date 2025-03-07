@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help - Example</title>
+    <link rel="stylesheet" href="help.css">
+
+    <style>
+        /* Your styles here */
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+}
+
+
+.max-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.bg-image {
+    background-image: url('https://assets.winni.in/groot/2023/02/03/helppage/desktop/banr.png');
+    background-size: cover;
+    background-position: center;
+    color: rgb(26, 25, 25);
+    text-align: center;
+    padding: 20px 0;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.col {
+    flex: 0 1 25%;
+    box-sizing: border-box;
+    padding: 15px;
+    max-width: 300px;
+}
+
+.adbsubCategory {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.help-box {
+    background-color: #fae195;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.help-box:hover {
+    transform: scale(1.05);
+}
+
+.box-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.box-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.box-hours {
+    color: #888;
+}
+
+.btn {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+.freq-box {
+    background-color: #f9f9f7;
+    padding: 20px;
+    border: 1px solid #f0ebeb;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.freq {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 90px;
+    font-size: 20px;
+}
+.card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    transform-style: preserve-3d;
+   
+}
+
+.card-image {
+    text-align: center;
+    padding-top: 25px;
+}
+
+.card-image img {
+    max-width: 100px;
+    height: auto;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    align-content: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+}
+
+.modal-footer {
+    text-align: right;
+    padding: 10px;
+    border-top: 1px solid #eaeaea;
+}
+
+.modal-close {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    background-color: #0056b3;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 40px;
+}
+
+.breadcrumb {
+    color: #060606;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.breadcrumb:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb-delim {
+    fill: #888;
+    margin: 0 5px;
+}
+
+.container {
+    padding: 20px;
+}
+
+.section {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .col {
+        flex: 0 1 100%;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Your content here -->
+    <div id="navbar-placeholder"></div>
+    <main id="help">
+        <div class="bg-image max-container">
+            <div class="adbsubCategory">
+                How can we help?
+            </div>
+            <div class="adb row">
+                <div class="col"></div>
+                <div class="col">
+                    <div class="help-box">
+                            <div class="adbHelpWriteUs row"> 
+                                <div class="col">
+                                    <img class="box-icon" src="https://assets.winni.in/groot/2023/02/03/helppage/desktop/gmail.png" alt="Email Icon">
+                                </div> 
+                                <div class="col"> 
+                                    <p class="box-title">Happy To Help</p>  
+                                    <p class="box-hours">8AM to 11PM</p>   
+                                    <p><button data-target="writeus" class="btn modal-trigger">Write_To Us</button></p> 
+                                </div> 
+                            </div> 
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="help-box">
+                        <div class="adbHelpWriteUs row"> 
+                            <div class="col">
+                                <img class="box-icon" src="https://assets.winni.in/groot/2023/02/03/helppage/desktop/call-us.png" alt="Call Icon">
+                            </div> 
+                            <div class="col"> 
+                                <p class="box-title">Talk To Us</p>  
+                                <p class="box-hours">8AM to 11PM</p>  
+                                <p><button data-target="callUs" class="btn modal-trigger">Call Us</button></p>       
+                            </div> 
+                        </div> 
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="help-box">
+                        <div class="adbHelpWriteUs row"> 
+                            <div class="col">
+                                <img class="box-icon" src="https://assets.winni.in/groot/2022/07/28/icon/whatsAppdesktop.png" alt="WhatsApp Icon">
+                            </div> 
+                            <div class="col"> 
+                                <p class="box-title">Chat On WhatsApp</p>  
+                                <p class="box-hours">8AM to 11PM</p>   
+                                <p><a href="https://api.whatsapp.com/send/?phone=7657853799" class="btn">Chat Now</a></p> 
+                            </div> 
+                        </div> 
+                    </div>
+                </div>
+                <div class="col"></div>
+            </div> 
+        </div> 
+    
+        <div class="container" style="max-width:1600px;">
+            <div class="row mb-0 section" style="padding-bottom:7px;"> 
+                <div class="col s12"> 
+                    <a href="main.html" class="breadcrumb">Home</a> 
+                    <svg width="16" height="27" viewBox="0 0 16 27" xmlns="http://www.w3.org/2000/svg" class="breadcrumb-delim"> 
+                        <path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z"></path>
+                    </svg> 
+                    <a href="#!" class="breadcrumb">Contact Us</a> 
+                </div> 
+            </div>   
+            
+            <div class="freq-box">
+                <div class="freq">
+                    <b>FREQUENTLY ASKED QUESTIONS</b>
+               
+                    <div class="row adbHelpModal" style="align-content:center;background-color:#fae195;padding-bottom:25px; padding:20px;">   
+                        <!-- Card for 'Need help purchasing at Winni?' -->
+                        <div class="col m3">
+                            <div class="card modal-trigger" data-target="purchase" style="cursor: pointer; height: 285px;">
+                                <div class="card-image" style="padding-top:25px;">    
+                                    <img class="activator" src="https://assets.winni.in/groot/2023/02/03/helppage/desktop/need-help.png">   
+                                </div>         
+                                <div class="card-content">             
+                                    <span class="card-title activator grey-text text-darken-4 center-align">Need help purchasing at Winni?</span>      
+                                </div>         
+                            </div>
+                        </div>
+        
+                        <!-- Card for 'Expected Delivery Date of Courier Products' -->
+                        <div class="col m3">
+                            <div class="card modal-trigger" data-target="delivery" style="cursor: pointer; height: 285px;">
+                                <div class="card-image" style="padding-top:25px;">    
+                                    <img class="activator" src="https://assets.winni.in/groot/2023/02/03/helppage/desktop/expected-delivery-date.png">   
+                                </div>         
+                                <div class="card-content">             
+                                    <span class="card-title activator grey-text text-darken-4 center-align">Expected Delivery Date of Courier Products</span>      
+                                </div>         
+                            </div>
+                        </div>
+        
+                        <!-- Card for 'Special Discounts and Deals' -->
+                        <div class="col m3">
+                            <div class="card modal-trigger" data-target="special-discounts" style="cursor: pointer; height: 285px;">
+                                <div class="card-image" style="padding-top:25px;">    
+                                    <img class="activator" src="https://assets.winni.in/groot/2023/02/03/helppage/desktop/special-discount.png">   
+                                </div>         
+                                <div class="card-content">             
+                                    <span class="card-title activator grey-text text-darken-4 center-align">Special Discounts and Deals</span>      
+                                </div>         
+                            </div>
+                        </div>
+        
+                        <!-- Cancellation and Refund Policy... -->
+                         <div class="col m3">
+    <div class="card modal-trigger" data-target="cancellationPolicy" style="cursor: pointer; height: 285px;">
+        <div class="card-image" style="padding-top:25px;">    
+            <img class="activator" src="https://assets.winni.in/groot/2023/02/03/helppage/desktop/cancellation-and-refund.png">   
+        </div>         
+        <div class="card-content">             
+            <span class="card-title activator grey-text text-darken-4 center-align">Cancellation and Refund Policy</span>      
+        </div>         
+    </div>
+</div>
+<div class="col m3">
+    <div class="card modal-trigger" data-target="customizedOrders" style="cursor: pointer; height: 285px;">
+        <div class="card-image" style="padding-top:25px;">    
+            <img class="activator" src="https://assets.winni.in/groot/2023/02/03/helppage/desktop/customized-orders.png">   
+        </div>         
+        <div class="card-content">             
+            <span class="card-title activator grey-text text-darken-4 center-align">Customized Orders</span>      
+        </div>         
+    </div>
+</div>
+<!--Managing My Orders-->
+<div class="col m3">
+    <div class="card modal-trigger" data-target="manageOrders" style="cursor: pointer; height: 285px;">
+        <div class="card-image" style="padding-top:25px;">    
+            <img class="activator" src="https://assets.winni.in/groot/2023/02/03/helppage/desktop/managing-my-orders.png">   
+        </div>         
+        <div class="card-content">             
+            <span class="card-title activator grey-text text-darken-4 center-align">Managing My Orders</span>      
+        </div>         
+    </div>
+</div>
+<!--Inquiries about Charges-->
+<div class="col m3">
+    <div class="card modal-trigger" data-target="inquiriesCharges" style="cursor: pointer; height: 285px;">
+        <div class="card-image" style="padding-top:25px;">    
+            <img class="activator" src="https://assets.winni.in/groot/2023/02/03/helppage/desktop/inquiries-about-delivery-charges.png">   
+        </div>         
+        <div class="card-content">             
+            <span class="card-title activator grey-text text-darken-4 center-align">Inquiries about Charges</span>      
+        </div>         
+    </div>
+</div>
+<!--collabrate with us -->
+<div class="col m3">
+<div class="card modal-trigger" data-target="inquiries" style="cursor: pointer; height: 285px;">        
+    <div class="card-image" style="padding-top: 25px;">    
+        <img class="activator" src="https://assets.winni.in/groot/2023/02/03/helppage/desktop/need-help.png">   
+    </div>         
+    <div class="card-content">             
+        <span class="card-title activator grey-text text-darken-4 center-align">Collabrate With Us?</span>      
+    </div>         
+</div>
+
+  </div>
+ </div>
+</main>
+        
+   <!-- Modal for 'Need help purchasing at Winni?' -->
+            <div id="purchase" class="modal">
+                <div class="modal-content">
+                    <h4>Need help purchasing at Winni?</h4>
+                    <p>1. How to place an order at Winni?</p>
+                    <p>First of all, you have to register at Winni if you are a new customer. If you are an existing customer, then just login and select the Delivery city or Pincode & choose the gifts to order.</p>
+                    <p>2. What are the benefits of registering at Winni?</p>
+                    <p>On registering with Winni, you will get 10% off.</p>
+                    <p>As a registered member of Winni, you don’t need to enter your details every time for your order as it is already saved in My Account.</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="modal-close btn">Close</button>
+                </div>
+            </div>
+        
+ <!-- Modal for 'Expected Delivery Date of Courier Products' -->
+            <div id="delivery" class="modal">
+                <div class="modal-content">
+                    <h4>Expected Delivery Date of Courier Products</h4>
+                    <p>Courier products will be shipped within 2-3 business days from the order placed date. For Tracking number, you can contact our customer service or can email us at info@winni.in.</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="modal-close btn">Close</button>
+                </div>
+            </div>
+        
+ <!-- Modal for 'Special Discounts and Deals' -->
+            <div id="special-discounts" class="modal">
+                <div class="modal-content">
+                    <h4>Special Discounts and Deals</h4>
+                    <p>Does Winni provide discounts and deals on occasions?</p>
+                    <p>Yes, we provide several discounts and deals on occasions.</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="modal-close btn">Close</button>
+                </div>
+            </div>
+ <!-- Modal for 'Cancellation and Refund Policy' -->
+<div id="cancellationPolicy" class="modal">
+    <div class="modal-content">
+        <h4>Cancellation and Refund Policy</h4>
+        <p>Orders are processed in time slots and we accept cancellation requests with reference to time slot selected by the customer in order placed. Consider the conditions stated below:</p>
+        <ul>
+            <li>If the cancellation request comes to Winni before 24 hours to the start of time slot selected - 10% of the order value is charged as cancellation charges. 90% refund to Bank Account. NOTE - 100% refund can be requested in Winni wallet, where we waive off cancellation charges.</li>
+            <li>If the cancellation request comes to Winni between 12 - 24 hours before the start of time slot selected then - 20% of the order value will be deducted as cancellation charges. 80% refund to Bank Account. NOTE - 100% refund can be requested in Winni wallet, where we waive off cancellation charges.</li>
+            <li>If cancellation request comes to Winni within 12 hours to the start of time slot selected - 100% of the order value will be deducted as cancellation charges. 0% refund to Bank account or 0% to Winni wallet applicable.</li>
+        </ul>
+        <p>Only one attempt for delivery will be made. Please confirm availability of recipient before choosing a delivery time. If the recipient is not available at the time of delivery, the second attempt will not be made and order will be canceled. No refund will be made in such case.</p>
+        <p>For more information you can check our Refund Policy and Cancellation Policy pages.</p>
+    </div>
+    <div class="modal-footer">
+        <button class="modal-close btn">Close</button>
+    </div>
+</div>
+<!--customized orders-->
+<div id="customizedOrders" class="modal">
+    <div class="modal-content">
+        <h4>Customized Orders</h4>
+        <ol>
+            <li>How to customize the photo on the cake?<br>
+            After you place your photo cake order, email us a picture to be printed on the cake at <a href="mailto:info@winni.in">info@winni.in</a> along with order number.</li>
+            <li>How to personalize photo mugs or photo frames?<br>
+            After you place your personalized mug or photo frame order, email us a picture to be printed over the mug or photo frame at <a href="mailto:info@winni.in">info@winni.in</a> along with order number.</li>
+        </ol>
+    </div>
+    <div class="modal-footer">
+        <button class="modal-close btn">Close</button>
+    </div>
+</div>
+<!-- Modal for 'Managing My Orders' -->
+<div id="manageOrders" class="modal">
+    <div class="modal-content">
+        <h4>Managing My Orders</h4>
+        <ol>
+            <li>How do I track the progress of my order?<br>
+            You can Track your order by clicking on "TRACK ORDER" option on Main Website page or click on the shared link: <a href="https://www.winni.in/my-winni/orders" target="_blank">https://www.winni.in/my-winni/orders</a></li>
+            <li>While placing the order, why do I see delivery time disabled?<br>
+            Sometimes we get a large number of orders for delivery at a particular time slot. In this case, that particular time slot is disabled to prevent taking any more orders. If you need help in finding the time slot for that day, please contact our customer support.</li>
+            <li>What are Various Payment Options?<br>
+            You can make your payment through net banking, Paytm, Paypal, Debit Card, Credit Card, Mobikwik, and Winni Wallet. Note: We don’t provide Cash on Delivery (COD) option.</li>
+            <li>What if the recipient is not available when the delivery person reaches there? Will you re-attempt delivery?<br>
+            We do not attempt to deliver again, but we would call the recipient and sender to know if we can deliver their order to any neighbor or nearby place. Unable to do so will lead to cancellation of the order and no refund will be made in case of perishable products like cakes, chocolates, and flowers.</li>
+        </ol>
+    </div>
+    <div class="modal-footer">
+        <button class="modal-close btn">Close</button>
+    </div>
+</div>
+<!-- Modal for 'Inquiries about Charges' -->
+<div id="inquiriesCharges" class="modal">
+    <div class="modal-content">
+        <h4>Inquiries about Charges</h4>
+        <ol>
+            <li><b>Are there any delivery charges?</b><br>
+                Delivery charges vary based on the location. When you provide the pin code of the delivery address, our website will show you the specific charges ranging from Rs. 0 to Rs. 300.</li>
+            <li><b>Are there any hidden charges (GST) when I make a purchase on Winni?</b><br>
+                There are NO hidden charges. All prices listed for items are final and all-inclusive. Delivery charges may apply based on location and other parameters.</li>
+            <li><b>Does Winni provide midnight delivery as well? Is there any extra charge for it?</b><br>
+                Yes, we offer midnight delivery from 11:00 PM to 11:59 PM. A charge of Rs. 250 is applicable for midnight delivery.</li>
+            <li><b>What are Convenience Charges?</b><br>
+                Convenience Fee includes charges for services rendered by Winni and some percentage of charges applied by banks for facilitating online payments.</li>
+        </ol>
+    </div>
+    <div class="modal-footer">
+        <button class="modal-close btn">Close</button>
+    </div>
+</div>
+<!-- Modal content 
+ Collaborate with us-->
+<div id="Collabratewithus" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="card-title grey-text text-darken-4 center-align">Inquiries about charges?</span>
+        <h4>Collaborate with us</h4>
+        <ol>
+            <li><b>Vendor Tie-ups</b><br>
+                For getting associated with Winni as a vendor, please fill vendor registration form Vendor Registration Form.</li>
+            <li><b>Franchise Tie-ups</b><br>
+                Join Winni Franchise network, and get opportunity to grow with Winni's increasing user base Apply for franchise</li>
+           </ol>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+</div>
+
+    <footer>
+        <p>&copy; 2024 Example. All rights reserved.</p>
+    </footer>
+
+    <div id="callUs" class="modal">
+        <div class="modal-content">
+            <h4>Call Us</h4>
+            <p>Phone number: 123-456-7890</p>
+            <p>Our support team is available from 8AM to 11PM.</p>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-close btn">Close</button>
+        </div>
+    </div>
+    
+
+    <script src="navbar.js"></script>
+    <script>
+        // Your other scripts here
+        // help.js
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Modal functionality
+    var modalTriggers = document.querySelectorAll('.modal-trigger');
+    var modals = document.querySelectorAll('.modal');
+    var modalCloses = document.querySelectorAll('.modal-close');
+
+    modalTriggers.forEach(function(trigger) {
+        trigger.addEventListener('click', function() {
+            var target = document.getElementById(this.getAttribute('data-target'));
+            if (target) {
+                target.style.display = 'block';
+            }
+        });
+    });
+
+    modalCloses.forEach(function(close) {
+        close.addEventListener('click', function() {
+            this.closest('.modal').style.display = 'none';
+        });
+    });
+
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = 'none';
+        }
+    };
+
+    // Style modification
+    const element = document.querySelector("body > main > div > div.container > div.row.adbHelpModal > div:nth-child(2) > div");
+
+    // Modify styles
+    element.style.backgroundColor = "#f0f0f0";
+    element.style.boxShadow = "0 4px 8px rgba(0,0,0,0.1)";
+    element.style.cursor = "pointer";
+    element.style.height = "300px";
+});
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winni - Beautiful Flower Arrangements</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5dc;
+        }
+
+        .banner {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+
+        .banner video {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .banner-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            color: black;
+        }
+
+        .banner-text h1 {
+            margin: 0;
+            font-size: 36px;
+            color: red;
+        }
+
+        .banner-text p {
+            margin: 10px 0 0;
+            font-size: 18px;
+            color: black;
+        }
+
+        .categories {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            background-color: #f5f5dc;
+        }
+        .category {
+            text-align: center;
+            margin: 10px;
+            flex: 1;
+            max-width: 150px;
+        }
+        .category img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        .category p {
+            margin: 10px 0 0;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .must-have {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff7f7;
+        }
+        .must-have h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .must-have .items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+        .must-have .item {
+            text-align: center;
+            margin: 10px;
+            position: relative;
+            max-width: 250px;
+        }
+        .must-have .item img {
+            width: 250px;
+            height: 250px;
+            border-radius: 10px;
+        }
+        .must-have .item .description {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .popup-content {
+            background-color: #1a0e0e;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            background-color: #fff7f7;
+        }
+        .popup-content h2 {
+            color: #333;
+        }
+        .popup-content p {
+            color: #666;
+        }
+        .popup-content ul {
+            list-style: none;
+            padding: 0;
+        }
+        .popup-content li {
+            background-color: #f8edb1;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            color: #333;
+        }
+        .popup-content button {
+            background-color: #322329;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .popup-content button:hover {
+            background-color: #422d34;
+        }
+
+        @keyframes popup-fade-in {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .flowers {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff7f7;
+        }
+
+        .flowers h2 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .flowers .items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .flowers .item {
+            text-align: center;
+            margin: 10px;
+            position: relative;
+            max-width: 250px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .flowers .item img {
+            width: 250px;
+            height: 250px;
+            border-radius: 10px;
+        }
+
+        .flowers .item .description {
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .flowers .item .price {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .flowers-desc p, .flowers-desc h3 {
+            font-size: 30px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .slideshow-container {
+            position: relative;
+            max-width: 1500px;
+            margin: auto;
+        }
+
+        .slide {
+            display: none;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+        }
+
+        .must-have .item {
+            transition: transform 0.5s ease;
+        }
+
+        .must-have .item:hover {
+            transform: translateY(-10px) rotateX(15deg) rotateY(15deg);
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .flowers .item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .flowers .item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            border: 2px solid #ccc;
+        }
+
+        .flowers .item:hover img {
+            transform: scale(1.05);
+        }
+
+        .must-have .item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .must-have .item:hover img {
+            transform: scale(1.05);
+        }
+
+        @keyframes cool-hover {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1) rotate(3deg);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .flowers .item:hover img {
+            animation: cool-hover 0.5s ease;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <div class="banner">
+        <div id="navbar-placeholder"></div>
+        <video autoplay muted loop>
+            <source src="images/Untitled video - Made with Clipchamp (online-video-cutter.com).mp4"  type="video/mp4">
+        </video>
+    </div>
+
+    <div class="slideshow-container">
+        <div class="slide fade">
+            <img src="https://assets.winni.in/sf-img/live/visuals/home/desktop/2024/6/1719213604046.jpg" alt="Image 1">
+        </div>
+
+        <div class="slide fade">
+            <a href="gerberas.jsp">
+                <img src="https://assets.winni.in/sf-img/live/visuals/home/desktop/2024/4/1712552211535.jpg" alt="Image 2">
+            </a>
+        </div>
+
+        <div class="slide fade">
+            <img src="https://assets.winni.in/sf-img/live/visuals/home/desktop/2024/6/1719379829712.jpg" alt="Image 3">
+        </div>
+
+        <div class="slide fade">
+            <img src="https://assets.winni.in/sf-img/live/visuals/home/desktop/2024/5/1715681603912.jpg" alt="Image 4">
+        </div>
+    </div>
+
+    <section class="categories">
+        <div class="category">
+            <img src="https://assets.winni.in/groot/2023/12/18/desktop/cake.jpg" alt="Cakes">
+            <p>Cakes</p>
+        </div>
+        <div class="category">
+        	 <a href="index2.jsp">
+            <img src="https://assets.winni.in/groot/2023/12/18/desktop/flowers.jpg" alt="Flowers">
+            </a>
+            <p>Flowers</p>
+        </div>
+        <div class="category">
+            <img src="https://assets.winni.in/groot/2023/12/18/desktop/combos.jpg" alt="Combos">
+            <p>Combos</p>
+        </div>
+        <div class="category">
+            <img src="https://assets.winni.in/groot/2023/12/18/desktop/plants.jpg" alt="Plants">
+            <p>Plants</p>
+        </div>
+        <div class="category">
+            <img src="https://assets.winni.in/groot/2023/12/18/desktop/chocolates.jpg" alt="Chocolates">
+            <p>Chocolates</p>
+        </div>
+        <div class="category">
+            <img src="https://assets.winni.in/groot/2023/12/18/desktop/gifts.jpg" alt="Gifts">
+            <p>Gifts</p>
+        </div>
+        <div class="category">
+            <img src="https://assets.winni.in/groot/2023/12/18/desktop/personalised.jpg" alt="Personalised">
+            <p>Personalised</p>
+        </div>
+        <div class="category">
+            <img src="https://assets.winni.in/groot/2024/01/22/desktop/desktop-crystal-gift.jpg" alt="Crystal Gifts">
+            <p>Crystal Gifts</p>
+        </div>
+    </section>
+
+    <section class="must-have">
+        <h2>Must Have</h2>
+        <div class="items">
+            <div class="item">
+                <img src="https://assets.winni.in/groot/2024/01/22/desktop/best-seller-cake.jpg?w=600" alt="Best Seller Cakes">
+            </div>
+            <div class="item">
+            	 <a href="mixed.jsp">
+                <img src="https://assets.winni.in/groot/2024/01/22/desktop/caricature-desktop.jpg?w=600" alt="Roses">
+            </a>
+            </div>
+            <div class="item">
+             <a href="purple.jsp">
+                <img src="https://assets.winni.in/groot/2024/01/18/desktop/flower-combos-image.jpg?w=600" alt="Combos">
+            </a>
+            </div>
+            <div class="item">
+                <img src="https://assets.winni.in/groot/2023/12/18/desktop/chocolate-bouquet.jpg" alt="Teddy Day">
+            </div>
+        </div>
+    </section>
+
+    <section class="flowers">
+        <h2>Flowers</h2>
+        <div class="items">
+            <div class="item">
+             <a href="index2.jsp">
+                <img src="https://assets.winni.in/groot/2023/12/18/desktop/flowers-first-image.jpg?w=385" alt="Flower Arrangement 1">
+                 
+                </a>
+                <div class="description">Rose Box</div>
+             
+                <div class="price">$50</div>
+            </div>
+            <div class="item">
+            	 <a href="index2.jsp">
+                <img src="https://assets.winni.in/groot/2023/12/18/desktop/basket-arrangement.jpg?w=385" alt="Flower Arrangement 2">
+                </a>
+                <div class="description">Flower Basket</div>
+                <div class="price">$65</div>
+            </div>
+            <div class="item">
+             <a href="premiumflowers.jsp">
+                <img src="https://assets.winni.in/groot/2023/12/18/desktop/premium-flowers.jpg?w=385" alt="Flower Arrangement 3">
+                </a>
+                <div class="description">Bouquet</div>
+                <div class="price">$40</div>
+            </div>
+            <div class="item">
+                 <a href="whiteflowers.jsp">
+                <img src="https://assets.winni.in/groot/2023/12/18/desktop/lillies.jpg?w=385" alt="Flower Arrangement 4">
+                </a>
+                <div class="description">Flower Jar</div>
+                <div class="price">$55</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add the popup HTML here -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <h2>Popup Title</h2>
+            <p>Some content in the popup...</p>
+        </div>
+    </div>
+
+    <!-- Add a button to open the popup -->
+    <button id="open-popup">Open Popup</button>
+
+    <script>
+        // Popup script
+        document.addEventListener("DOMContentLoaded", function () {
+            const openPopupBtn = document.getElementById("open-popup");
+            const popup = document.getElementById("popup");
+            const closeBtn = document.getElementsByClassName("close")[0];
+
+            openPopupBtn.onclick = function () {
+                popup.style.display = "block";
+                popup.style.animation = "popup-fade-in 0.5s";
+            }
+
+            closeBtn.onclick = function () {
+                popup.style.display = "none";
+            }
+
+            window.onclick = function (event) {
+                if (event.target == popup) {
+                    popup.style.display = "none";
+                }
+            }
+        });
+
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("slide");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 5000); // Change image every 5 seconds
+        }
+    </script>
+    <script src="navbar.js"></script>
+</body>
+</html>

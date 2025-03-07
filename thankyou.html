@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="la.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+   
+    
+        
+    
+    <title>Thank You</title>
+    <link rel="stylesheet" href="thankyou.css">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+    <div class="container">
+        <div class="filters">
+            <h1>Thank You Flowers</h1>
+            <div class="filter">
+                <label for="delivery-date">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL8QCcF0O04OBIH8Oju0zA8kPQNMkx1x5rVw&s"
+                     Delivery Date>
+                </label>
+                <input type="text" id="delivery-date" placeholder="Select Delivery Date" readonly>
+            </div>
+            <div class="filter">
+                <label for="price">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH2unCqwLWm5pmKh30iRxvlDBCD4LamOYeOQ&s">Filter By Price</label>
+                <select id="price">
+                    <option value="all">All Products</option>
+                    <option value="under-200">Under ₹200</option>
+                    <option value="200-500">₹200 - ₹500</option>
+                    <option value="500-1000">₹500 - ₹1000</option>
+                    <option value="above-1000">Above ₹1000</option>
+                </select>
+            </div>
+            <div class="filter">
+                <label for="sort"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3K_JwQXek5ZyPpE2Cm4XtKc0JKffPCZ853w&s">Sort By</label>
+                <select id="sort">
+                    <option value="popularity">Popularity</option>
+                    <option value="price-low-high">Price: Low to High</option>
+                    <option value="price-high-low">Price: High to Low</option>
+                    <option value="newest">Newest Arrivals</option>
+                </select>
+            </div>
+        </div>
+        <div id="calendar-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="calendar">
+                    <div class="calendar-header">
+                        <button id="prev-month">&lt;</button>
+                        <div id="month-year"></div>
+                        <button id="next-month">&gt;</button>
+                    </div>
+                </div>
+                <div class="modal-buttons">
+                    <button id="cancel-btn" class="btn">CANCEL</button>
+                    <button id="ok-btn" class="btn">OK</button>
+                </div>
+            </div>
+        </div>
+        <div class="product-grid" id="product-grid">
+            <div class="product-item" data-price="629">
+                <a href="thankyou2.jsp">
+                    <img src="https://assets.winni.in/product/primary/2022/6/61608.jpeg?dpr=1&w=400" alt="Modern Romance">
+                </a>
+                <p>Modern Romance</p>
+                <div class="price">
+                    ₹629 <span class="old-price">₹879</span> <span class="discount">28% off</span>
+                    <br>
+                </div>
+                <div class="rating">4.7 ★</div>
+                <div class="wishlist" data-product-id="1">&#10084; Add to Wishlist</div>
+            </div>
+            <div class="product-item" data-price="579">
+                <a href="thankyou2.jsp">
+                    <img src="https://assets.winni.in/product/primary/2021/10/54302.jpeg?dpr=1&w=400" alt="Mystique 8 Red Roses Bouquet">
+                </a>
+                <p>Mystique 8 Red Roses Bouquet</p>
+                <div class="price">
+                    ₹579 <span class="old-price">₹729</span> <span class="discount">21% off</span>
+                    <br>
+                </div>
+                <div class="rating">4.7 ★</div>
+                <div class="wishlist" data-product-id="1">&#10084; Add to Wishlist</div>
+            </div>
+            <div class="product-item" data-price="1049">
+                <a href="thankyou2.jsp">
+                    <img src="https://assets.winni.in/product/primary/2023/5/84867.jpeg?dpr=1&w=400" alt="6 Orchid Bunch">
+                </a>
+                <br>
+                <p>6 Orchid Bunch</p>
+                
+                <div class="price">
+                    ₹1,049 <span class="old-price">₹1,699</span> <span class="discount">38% off</span>
+                    <br>
+                </div>
+                <div class="rating">4.8 ★</div>
+                <div class="wishlist" data-product-id="1">&#10084; Add to Wishlist</div>
+                <div class="badge">Premium</div>
+            </div>
+            <div class="product-item" data-price="1899">
+                <a href="thankyou2.jsp">
+                    <img src="https://assets.winni.in/product/primary/2014/6/29518.jpeg?dpr=1&w=400" alt="Beautiful Pink Lilies Bunch">
+                </a>
+                <p>Beautiful Pink Lilies Bunch</p>
+                
+                <div class="price">
+                    ₹1,899 <span class="old-price">₹2,299</span> <span class="discount">17% off</span>
+                    <br>
+                </div>
+                <div class="rating">5.0 ★</div>
+                <div class="wishlist" data-product-id="1">&#10084; Add to Wishlist</div>
+                <div class="badge best-seller">Best Seller</div>
+            </div>
+            <div class="product-item" data-price="629">
+                <a href="thankyou2.jsp">
+                    <img src="https://assets.winni.in/product/primary/2014/10/49707.jpeg?dpr=1&w=400" alt="Blooming Insight">
+                </a>
+                <p>Blooming Insight</p>
+                <div class="price">
+                    ₹629 <span class="old-price">₹779</span> <span class="discount">19% off</span>
+                    <br>
+                </div>
+                <div class="rating">4.7 ★</div>
+                <div class="wishlist" data-product-id="1">&#10084; Add to Wishlist</div>
+            </div>
+            <div class="product-item" data-price="1949">
+                <a href="thankyou2.jsp">
+                    <img src="https://assets.winni.in/product/primary/2014/10/47277.jpeg?dpr=1&w=400" alt="Attractive Mixed Lilies">
+                </a>
+                <br>
+                <p>Attractive Mixed Lilies</p>
+                
+                <div class="price">
+                    ₹1949 <span class="old-price">₹2999</span> <span class="discount">35% off</span>
+                    <br>
+                </div>
+                <div class="rating">5.0 ★</div>
+                <div class="wishlist" data-product-id="1">&#10084; Add to Wishlist</div>
+            </div>
+            <div class="product-item" data-price="1099">
+                <a href="thankyou2.jsp">
+                    <img src="https://assets.winni.in/product/primary/2021/10/54274.jpeg?dpr=1&w=400" alt="Season of Flowery Gifts">
+                </a>
+                <p>Classic White Lilies</p>
+                
+                <div class="price">
+                    ₹1,099 <span class="old-price">₹1,549</span> <span class="discount">29% off</span>
+                    <br>
+                </div>
+                <div class="rating">5.0 ★</div>
+                <div class="wishlist" data-product-id="1">&#10084; Add to Wishlist</div>
+            </div>
+            <div class="product-item" data-price="1299">
+                <a href="thankyou2.jsp">
+                    <img src="https://assets.winni.in/product/primary/2014/6/30536.jpeg?dpr=1&w=400" alt="Mixed Roses Arrangement">
+                </a>
+                <p>Mixed Roses Arrangement</p>
+                
+                <div class="price">
+                    ₹1,299 <span class="old-price">₹1,649</span> <span class="discount">21% off</span>
+                    
+                </div>
+                <div class="rating">
+                    4.5 ★
+                </div>
+                <div class="wishlist" data-product-id="1">&#10084; Add to Wishlist</div>
+            </div>
+        </div>
+    </div>
+       
+    <script src="navbar.js">   </script>
+    <script src="thankyou.js"></script>
+</body>
+</html>

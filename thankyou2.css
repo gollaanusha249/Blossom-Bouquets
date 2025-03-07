@@ -1,0 +1,182 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+nav {
+    padding: 10px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+nav a {
+    color: #333;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.product-container {
+    display: flex;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.product-images {
+    flex: 1;
+    position: relative;
+}
+
+.image-zoom-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+}
+
+#main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.zoomed-image {
+    position: absolute;
+    border: 1px solid #000;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    display: none;
+    z-index: 10;
+}
+
+.zoomed-image img {
+    position: absolute;
+    width: 400%;
+    height: 400%;
+    object-fit: cover;
+}
+
+.thumbnails {
+    display: flex;
+    margin-top: 10px;
+}
+
+.thumbnails img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+    cursor: pointer;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+}
+
+.product-details {
+    flex: 1;
+    padding-left: 20px;
+}
+
+.product-details h1 {
+    margin-top: 0;
+}
+
+.rating {
+    color: #ff9800;
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.price {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #888;
+    margin-right: 10px;
+}
+
+.discounted-price {
+    color: #e53935;
+}
+
+.discount {
+    color: #388e3c;
+}
+
+.offers {
+    background-color: #f1f8e9;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 20px 0;
+}
+
+.offers p {
+    margin: 0;
+    font-weight: bold;
+}
+
+.offers ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.offers ul li {
+    margin: 5px 0;
+}
+
+.offers ul li a {
+    color: #00796b;
+    text-decoration: none;
+}
+
+.delivery-check {
+    margin: 20px 0;
+}
+
+.delivery-check input {
+    padding: 10px;
+    width: 60%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.delivery-check button {
+    padding: 10px 20px;
+    background-color: #00796b;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-to-cart {
+    display: block;
+    padding: 15px;
+    width: 100%;
+    background-color: #388e3c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2em;
+    cursor: pointer;
+    text-align: center;
+}
+
+.timer {
+    color: #e53935;
+    margin-top: 20px;
+}
